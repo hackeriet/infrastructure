@@ -1,0 +1,21 @@
+<volume type='file'>
+  <name>openldap.qcow2</name>
+  <key>/var/lib/libvirt/images/openldap.qcow2</key>
+  <source>
+  </source>
+  <capacity unit='bytes'>21474836480</capacity>
+  <allocation unit='bytes'>4156940288</allocation>
+  <target>
+    <path>/var/lib/libvirt/images/openldap.qcow2</path>
+    <format type='qcow2'/>
+    <permissions>
+      <mode>0600</mode>
+      <owner>109</owner>
+      <group>117</group>
+    </permissions>
+    <compat>1.1</compat>
+    <features>
+      <lazy_refcounts/>
+    </features>
+  </target>
+</volume>

@@ -1,0 +1,34 @@
+<domain type='kvm' id='2'>
+  <name>openldap</name>
+  <title>Alpine host running slapd</title>
+  <memory unit='KiB'>524288</memory>
+  <currentMemory unit='KiB'>524288</currentMemory>
+  <vcpu placement='static'>1</vcpu>
+
+  <os>
+    <type arch='x86_64' machine='pc'>hvm</type>
+    <boot dev='cdrom'/>
+  </os>
+
+  <devices>
+    <emulator>/usr/bin/kvm</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2'/>
+      <source file='/var/lib/libvirt/images/openldap.qcow2'/>
+      <backingStore/>
+      <target dev='vda' bus='virtio'/>
+      <alias name='virtio-disk0'/>
+    </disk>
+    <disk type='file' device='cdrom'>
+      <source file='/home/vincent/alpine-extended.iso' />
+      <target dev='hda'/>
+      <readonly/>
+    </disk>
+    <interface type='bridge'>
+      <source bridge='br0'/>
+      <target dev='vnet1'/>
+      <model type='virtio'/>
+      <alias name='net0'/>
+    </interface>
+  </devices>
+</domain>
