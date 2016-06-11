@@ -1,0 +1,13 @@
+# Auxiliary object class for Hackeriet user accounts
+
+attributetype ( 2.25.191190935738506152605574656059217051426.1.1
+    NAME ( 'sshPublicKey' )
+    DESC 'OpenSSH public key'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
+
+objectclass ( 2.25.191190935738506152605574656059217051426.2.1
+    NAME 'hackerietMember'
+    DESC 'An actual human member of Hackeriet'
+    AUXILIARY
+    MAY ( sshPublicKey ) )

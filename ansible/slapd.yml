@@ -1,0 +1,5 @@
+---
+- hosts: slapd
+  roles:
+    - common
+    - slapd

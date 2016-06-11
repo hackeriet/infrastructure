@@ -1,0 +1,32 @@
+---
+# OpenLDAP server configuration
+
+- name: Install OpenLDAP software
+  pkgng: name={{ item }} state=present
+  with_items:
+    - openldap-client
+    - openldap-server
+    - ldapvi
+
+- name: Configure slapd rc.conf
+  copy:
+    src: slapd
+    dest: /etc/rc.conf.d/slapd
+    mode: 644
+
+- name: Update Hackeriet schema
+  copy:
+    src: hackeriet.schema
+    dest: /usr/local/etc/openldap/schema/hackeriet.schema
+  notify: restart slapd
+    
+- name: Configure slapd itself
+  copy:
+    src: slapd.conf
+    dest: /usr/local/etc/openldap/slapd.conf
+  notify: restart slapd
+
+- name: Enable and start slapd
+  service:
+    name: slapd
+    state: started

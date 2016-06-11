@@ -1,0 +1,12 @@
+---
+# Configures users that should be able to SSH and sudo
+
+- name: Add users on system
+  user: name={{ item }} state=present groups="wheel"
+  with_items:
+    - vincent
+
+- name: Add SSH keys for users with keys
+  authorized_key: user={{ item.username }} key="https://github.com/{{ item.github }}.keys"
+  with_items:
+    - { username: 'vincent', github: 'tazjin' }

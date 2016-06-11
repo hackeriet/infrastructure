@@ -1,0 +1,5 @@
+---
+
+# Handler to restart LDAP after changes
+- name: restart slapd
+  service: name=slapd state=restarted

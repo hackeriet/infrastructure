@@ -1,0 +1,16 @@
+dn: dc=hackeriet,dc=no
+objectClass: dcObject
+objectClass: organization
+dc: hackeriet
+o: Hackeriet
+description: A hackerspace in Oslo
+
+dn: cn=root,dc=hackeriet,dc=no
+objectClass: organizationalRole
+cn: root
+description: Directory Manager
+
+dn: ou=users,dc=hackeriet,dc=no
+objectClass: organizationalUnit
+ou: users
+description: Organizational unit for all user accounts
